@@ -1,14 +1,13 @@
-# Welcome to your CDK TypeScript project
+Steps
+1.- Create cdk project cdk init --language=typescript
+2.- Create insfrastruture folders
+3.- Move cdk code into infrastructure folder
+4.- Create new nextjs app npx create-next-app@latest and use app as project name.
+5.- Configure next js for static site generation.
+6.- Create package json at root level for better development experience, optional you can settup husky here.
+7.- Start adding CDK code.
 
-This is a blank project for CDK development with TypeScript.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+Testing locally.
+8.- Run you next js app.
+9.- Synt cdk code (npm run synth:local).
+10.- Then you can run cdk deploy, but let's try with github actions.
