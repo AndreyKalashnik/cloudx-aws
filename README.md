@@ -1,13 +1,12 @@
-Steps
-1.- Create cdk project cdk init --language=typescript
-2.- Create insfrastruture folders
-3.- Move cdk code into infrastructure folder
-4.- Create new nextjs app npx create-next-app@latest and use app as project name.
-5.- Configure next js for static site generation.
-6.- Create package json at root level for better development experience, optional you can settup husky here.
-7.- Start adding CDK code.
+## CloudX AWS Practitioner js course 2024
 
-Testing locally.
-8.- Run you next js app.
-9.- Synt cdk code (npm run synth:local).
-10.- Then you can run cdk deploy, but let's try with github actions.
+### Here is a monorepo which has two parts:
+- Front-End (app);
+- Back-End (infrastructure);
+
+
+[CloudFront CloudDFormation template deployment by CDK link](https://d2x8apydnwku5t.cloudfront.net/)
+<br>
+[CloudFront manual deployment link](https://dxxopoah53il5.cloudfront.net/)
+
+#### Followed a [guid](https://github.com/aoropeza/cloudx-practitioner2024) from mentor.
