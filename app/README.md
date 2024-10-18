@@ -1,6 +1,4 @@
 # React-shop-cloudfront
-[CloudFront CloudDFormation template deployment link](https://d1ww5nh46szycn.cloudfront.net/)
-[CloudFront manual deployment link](https://dxxopoah53il5.cloudfront.net/)
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
 
