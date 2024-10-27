@@ -1,12 +1,13 @@
 {
-    "name": "cloudx-aws",
-    "version": "1.0.0",
-    "private": true,
-    "main": "index.js",
-    "scripts": {
-        "build": "npm --prefix ./app/ run build",
-        "dev": "npm --prefix ./app/ run dev",
-        "synth:local": "npm --prefix ./infrastructure/ run synth:local"
-    },
-    "license": "ISC"
+  "name": "cloudx-aws",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "npm --prefix ./app/ run build",
+    "dev": "npm --prefix ./app/ run start",
+    "synth:local": "npm --prefix ./infrastructure/ run synth:local",
+    "deploy": "npm --prefix ./infrastructure/ run deploy"
+  },
+  "license": "ISC"
 }
