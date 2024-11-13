@@ -14,7 +14,7 @@ interface Product {
   count: number;
 }
 
-const PRODUCTS_TABLE_NAME = "products";
+const PRODUCTS_TABLE_NAME = "Products";
 
 export const productsMock: readonly Product[] = [
   {
@@ -52,7 +52,7 @@ export class ProductStack extends cdk.Stack {
     super(scope, id, props);
 
     const api = new apigateway.RestApi(this, "product-api", {
-      restApiName: "Product Gateway",
+      restApiName: "Product Gateway API",
       description: "This API serves the Lambda functions.",
     });
 
@@ -74,7 +74,7 @@ export class ProductStack extends cdk.Stack {
         environment: {
           TABLE_NAME: PRODUCTS_TABLE_NAME,
         },
-        entry: path.join(__dirname, "./lambda/getProductList.ts"),
+        entry: path.join(__dirname, "./getProductList.ts"),
       }
     );
 
@@ -88,7 +88,7 @@ export class ProductStack extends cdk.Stack {
         environment: {
           TABLE_NAME: PRODUCTS_TABLE_NAME,
         },
-        entry: path.join(__dirname, "./lambda/getProductById.ts"),
+        entry: path.join(__dirname, "./getProductById.ts"),
       }
     );
 
@@ -102,7 +102,7 @@ export class ProductStack extends cdk.Stack {
         environment: {
           TABLE_NAME: PRODUCTS_TABLE_NAME,
         },
-        entry: path.join(__dirname, "./lambda/createProduct.ts"),
+        entry: path.join(__dirname, "./createProduct.ts"),
       }
     );
 
@@ -131,7 +131,7 @@ export class ProductStack extends cdk.Stack {
     );
 
     const allProductsResource = api.root.addResource("products");
-    const productByIdResource = allProductsResource.addResource("{id}");
+    const productByIdResource = allProductsResource.addResource("{productId}");
 
     allProductsResource.addMethod("GET", allProductsLambdaIntegration, {
       methodResponses: [{ statusCode: "200" }],

@@ -8,7 +8,7 @@ const tableName = process.env.TABLE_NAME as string;
 
 export const handler: Handler = async (event: APIGatewayProxyEvent) => {
   try {
-    const productId = event.pathParameters?.id;
+    const productId = event.pathParameters?.productId;
 
     if (!productId) {
       return {
