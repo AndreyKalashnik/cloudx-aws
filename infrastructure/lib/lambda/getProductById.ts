@@ -37,25 +37,10 @@ export const handler: Handler = async (event: APIGatewayProxyEvent) => {
       statusCode: 200,
       body: JSON.stringify(result.Item),
     };
-
-    // const product = mockProducts.find((p) => p.id === productId);
-    // if (!product) {
-    //   return {
-    //     statusCode: 404,
-    //     body: "Product not found",
-    //   };
-    // }
-
-    // return {
-    //   statusCode: 200,
-    //   body: JSON.stringify(product),
-    // };
   } catch (error) {
     return {
       statusCode: 500,
       body: JSON.stringify({ message: "Internal server error" }),
     };
   }
-
-  // const product = mockProducts.find((p) => p.id === productId);
 };
