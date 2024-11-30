@@ -84,7 +84,7 @@ export class ProductStack extends cdk.Stack {
         environment: {
           TABLE_NAME: PRODUCTS_TABLE_NAME,
         },
-        entry: path.join(__dirname, "./getProductList.ts"),
+        entry: path.join(__dirname, "./lambda/getProductList.ts"),
       }
     );
 
@@ -98,7 +98,7 @@ export class ProductStack extends cdk.Stack {
         environment: {
           TABLE_NAME: PRODUCTS_TABLE_NAME,
         },
-        entry: path.join(__dirname, "./getProductById.ts"),
+        entry: path.join(__dirname, "./lambda/getProductById.ts"),
       }
     );
 
@@ -112,7 +112,7 @@ export class ProductStack extends cdk.Stack {
         environment: {
           TABLE_NAME: PRODUCTS_TABLE_NAME,
         },
-        entry: path.join(__dirname, "./createProduct.ts"),
+        entry: path.join(__dirname, "./lambda/createProduct.ts"),
       }
     );
 
