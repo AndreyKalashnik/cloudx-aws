@@ -4,6 +4,7 @@ import * as iam from "aws-cdk-lib/aws-iam";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as apigateway from "aws-cdk-lib/aws-apigateway";
 import * as s3Notifications from "aws-cdk-lib/aws-s3-notifications";
+import { Queue } from "aws-cdk-lib/aws-sqs";
 import * as path from "path";
 import { Construct } from "constructs";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
@@ -16,6 +17,8 @@ export class ImportServiceStack extends cdk.Stack {
       versioned: true,
       removalPolicy: cdk.RemovalPolicy.RETAIN,
     });
+
+    const catalogItemsSQSQueue = new Queue(this, "catalog-items-sqs-queue");
 
     const api = new apigateway.RestApi(this, "files-api", {
       restApiName: "API Gateway for import service",
@@ -46,6 +49,7 @@ export class ImportServiceStack extends cdk.Stack {
         entry: path.join(__dirname, "./lambda/import-file-parser-lambda.ts"),
         environment: {
           BUCKET_NAME: productsFileBucket.bucketName,
+          SQS_QUEUE_URL: catalogItemsSQSQueue.queueUrl,
         },
       }
     );
@@ -92,5 +96,7 @@ export class ImportServiceStack extends cdk.Stack {
       allowOrigins: ["https://d2x8apydnwku5t.cloudfront.net/"],
       allowMethods: ["GET"],
     });
+
+    catalogItemsSQSQueue.grantSendMessages(importFileParserLambdaFunction);
   }
 }

@@ -127,7 +127,7 @@ export class ProductStack extends cdk.Stack {
           TABLE_NAME: PRODUCTS_TABLE_NAME,
           SNS_TOPIC_ARN: snsTopic.topicArn,
         },
-        entry: path.join(__dirname, "./catalogBatchProcess.ts"),
+        entry: path.join(__dirname, "./lambda/catalogBatchProcess.ts"),
       }
     );
 
